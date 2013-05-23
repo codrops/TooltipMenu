@@ -71,7 +71,7 @@
 			Array.prototype.slice.call( this.menuItems ).forEach( function( el, i ) {
 				var trigger = el.querySelector( 'a' );
 				if( self.touch ) {
-					trigger.addEventListener( 'touchstart', function( ev ) { self._handleTouch( this, ev ); } );
+					trigger.addEventListener( 'click', function( ev ) { self._handleClick( this, ev ); } );
 				}
 				else {
 					trigger.addEventListener( 'click', function( ev ) {
@@ -118,7 +118,7 @@
 			}
 
 		},
-		_handleTouch : function( el, ev ) {
+		_handleClick : function( el, ev ) {
 			var item = el.parentNode,
 				items = Array.prototype.slice.call( this.menuItems ),
 				submenu = item.querySelector( 'ul.cbp-tm-submenu' )
