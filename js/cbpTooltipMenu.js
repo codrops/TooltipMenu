@@ -124,7 +124,7 @@
 				submenu = item.querySelector( 'ul.cbp-tm-submenu' )
 
 			// first close any opened one..
-			if( this.current &&  items.indexOf( item ) !== this.current ) {
+			if( typeof this.current !== 'undefined' &&  items.indexOf( item ) !== this.current ) {
 				this._closeMenu( this.el.children[ this.current ] );
 				this.el.children[ this.current ].querySelector( 'ul.cbp-tm-submenu' ).setAttribute( 'data-open', 'false' );
 			}
