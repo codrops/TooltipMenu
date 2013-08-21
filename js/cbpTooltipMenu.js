@@ -4,19 +4,19 @@
  *
  * Licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
- * 
+ *
  * Copyright 2013, Codrops
  * http://www.codrops.com
  */
 ;( function( window ) {
-	
+
 	'use strict';
 
 	var document = window.document,
 		docElem = document.documentElement;
 
 	function extend( a, b ) {
-		for( var key in b ) { 
+		for( var key in b ) {
 			if( b.hasOwnProperty( key ) ) {
 				a[key] = b[key];
 			}
@@ -40,15 +40,15 @@
 	}
 
 	// http://snipplr.com/view.php?codeview&id=5259
-	function isMouseLeaveOrEnter(e, handler) { 
-		if (e.type != 'mouseout' && e.type != 'mouseover') return false; 
-		var reltg = e.relatedTarget ? e.relatedTarget : 
-		e.type == 'mouseout' ? e.toElement : e.fromElement; 
-		while (reltg && reltg != handler) reltg = reltg.parentNode; 
-		return (reltg != handler); 
+	function isMouseLeaveOrEnter(e, handler) {
+		if (e.type != 'mouseout' && e.type != 'mouseover') return false;
+		var reltg = e.relatedTarget ? e.relatedTarget :
+		e.type == 'mouseout' ? e.toElement : e.fromElement;
+		while (reltg && reltg != handler) reltg = reltg.parentNode;
+		return (reltg != handler);
 	}
 
-	function cbpTooltipMenu( el, options ) {	
+	function cbpTooltipMenu( el, options ) {
 		this.el = el;
 		this.options = extend( this.defaults, options );
 		this._init();
@@ -65,7 +65,7 @@
 			this._initEvents();
 		},
 		_initEvents : function() {
-			
+
 			var self = this;
 
 			Array.prototype.slice.call( this.menuItems ).forEach( function( el, i ) {
@@ -93,7 +93,7 @@
 				var submenu = el.querySelector( 'ul.cbp-tm-submenu' );
 
 				if( submenu ) {
-					el.className = 'cbp-tm-show';
+					el.className += ' cbp-tm-show';
 					if( self._positionMenu( el ) === 'top' ) {
 						el.className += ' cbp-tm-show-above';
 					}
@@ -105,7 +105,7 @@
 
 		},
 		_closeMenu : function( el ) {
-			
+
 			clearTimeout( this.omtimeout );
 
 			var submenu = el.querySelector( 'ul.cbp-tm-submenu' );
@@ -152,7 +152,7 @@
 				ot = getOffset(el),
 				spaceUp = ot.top ,
 				spaceDown = vH - spaceUp - el.offsetHeight;
-			
+
 			return ( spaceDown <= spaceUp ? 'top' : 'bottom' );
 		}
 	}
